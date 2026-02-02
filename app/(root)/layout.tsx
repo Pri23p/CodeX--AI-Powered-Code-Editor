@@ -1,17 +1,14 @@
-
-import { Metadata } from "next";
-
-import {Header} from "@/modules/home/header";
-import {Footer} from "@/modules/home/footer";
 import { cn } from "@/lib/utils";
+import {Footer} from "@/modules/home/footer";
+import { Header } from "@/modules/home/header";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "VibeCode - Editor",
-    default: "Code Editor For Vibecoders - VibeCode",
+    template: "VibeCode - Editor ",
+    default: "Code Editor For VibeCoders - VibeCode",
   },
 };
-
 export default function HomeLayout({
   children,
 }: {
@@ -19,9 +16,8 @@ export default function HomeLayout({
 }) {
   return (
     <>
-    <Header/>
-
-      <div
+      <Header />
+                  <div
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
@@ -31,9 +27,7 @@ export default function HomeLayout({
       />
        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"/>
       <main className="z-20 relative w-full pt-0 ">{children}</main>
-
-      <Footer/>
+      <Footer />
     </>
   );
 }
-

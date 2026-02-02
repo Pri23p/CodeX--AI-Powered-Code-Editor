@@ -1,19 +1,9 @@
 import NextAuth from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import type { DefaultSession } from "next-auth"
 
 import authConfig from "./auth.config"
 import { db } from "./lib/db";
 import { getAccountByUserId, getUserById } from "./modules/auth/actions";
-
-declare module "next-auth" {
-  interface Session {
-    user: {
-      id: string;
-      role: string;
-    } & DefaultSession["user"];
-  }
-}
 
 
  

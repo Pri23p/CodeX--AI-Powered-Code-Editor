@@ -1,89 +1,110 @@
-# Codex
+# CodeX
 
-Welcome to **Codex** – an AI-powered code editor with a vibe! Built with Next.js, Codex revolutionizes coding with intelligent AI assistance, seamless authentication, and a sleek, responsive interface. Whether you're a seasoned developer or just starting out, Codex enhances your workflow with smart suggestions, real-time collaboration, and a modern design that feels alive.
+
+**Vibecode Editor** is a blazing-fast, AI-integrated web IDE built entirely in the browser using **Next.js App Router**, **WebContainers**, **Monaco Editor**, and **local LLMs via Ollama**. It offers real-time code execution, an AI-powered chat assistant, and support for multiple tech stacks — all wrapped in a stunning developer-first UI.
+
+---
 
 ## 🚀 Features
 
-- **AI-Powered Assistance**: Get intelligent code suggestions, auto-completions, and error detection powered by advanced AI models.
-- **Vibe-Driven Design**: A unique, immersive UI that adapts to your coding mood with dynamic themes and animations.
-- **Authentication**: Secure sign-in and sign-out with NextAuth.js for personalized experiences.
-- **Responsive UI**: Beautiful, accessible components built with Radix UI and styled with Tailwind CSS.
-- **Theme Support**: Toggle between dark and light modes, plus custom vibes for ultimate personalization.
-- **Database Integration**: Robust data management with Prisma, supporting multiple databases.
-- **Type Safety**: Full TypeScript support for reliable, scalable code.
-- **Modular Architecture**: Easily extensible modules for auth, home, and custom features.
-- **Performance Optimized**: Lightning-fast with Next.js 16 and React 19.
+- 🔐 **OAuth Login with NextAuth** – Supports Google & GitHub login.
+- 🎨 **Modern UI** – Built with TailwindCSS & ShadCN UI.
+- 🌗 **Dark/Light Mode** – Seamlessly toggle between themes.
+- 🧱 **Project Templates** – Choose from React, Next.js, Express, Hono, Vue, or Angular.
+- 🗂️ **Custom File Explorer** – Create, rename, delete, and manage files/folders easily.
+- 🖊️ **Enhanced Monaco Editor** – Syntax highlighting, formatting, keybindings, and AI autocomplete.
+- 💡 **AI Suggestions with Ollama** – Local models give you code completion on `Ctrl + Space` or double `Enter`. Accept with `Tab`.
+- ⚙️ **WebContainers Integration** – Instantly run frontend/backend apps right in the browser.
+- 💻 **Terminal with xterm.js** – Fully interactive embedded terminal experience.
+- 🤖 **AI Chat Assistant** – Share files with the AI and get help, refactors, or explanations.
 
-## 🛠 Tech Stack
+---
 
-- **Frontend**: Next.js, React, TypeScript
-- **Styling**: Tailwind CSS, Radix UI
-- **Authentication**: NextAuth.js
-- **Database**: Prisma (supports PostgreSQL, MySQL, SQLite, etc.)
-- **Icons**: Lucide React
-- **Forms**: React Hook Form with Zod validation
-- **Charts**: Recharts for data visualization
-- **Deployment**: Vercel-ready
+## 🧱 Tech Stack
 
-## 📦 Installation
+| Layer         | Technology                                   |
+|---------------|----------------------------------------------|
+| Framework     | Next.js 15 (App Router)                      |
+| Styling       | TailwindCSS, ShadCN UI                       |
+| Language      | TypeScript                                   |
+| Auth          | NextAuth (Google + GitHub OAuth)             |
+| Editor        | Monaco Editor                                |
+| AI Suggestion | Ollama (LLMs running locally via Docker)     |
+| Runtime       | WebContainers                                |
+| Terminal      | xterm.js                                     |
+| Database      | MongoDB (via DATABASE_URL)                   |
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/codex.git
-   cd codex
-   ```
+---
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
+## 🛠️ Getting Started
 
-3. **Set up the database**:
-   - Configure your database in `prisma/schema.prisma`.
-   - Run Prisma migrations:
-     ```bash
-     npx prisma migrate dev
-     ```
+### 1. Clone the Repo
 
-4. **Configure environment variables**:
-   - Copy `.env.example` to `.env.local` and fill in your secrets (e.g., NextAuth providers, database URL).
+```bash
+git clone https://github.com/Pri23p/CodeX--AI-Powered-Code-Editor.git
+cd vibecode-editor
+````
 
-5. **Run the development server**:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
+### 2. Install Dependencies
 
-   Open [http://localhost:3000](http://localhost:3000) to view the app.
+```bash
+npm install
+```
 
-## 🏃 Usage
+### 3. Set Up Environment Variables
 
-- **Sign In**: Navigate to `/auth/sign-in` to authenticate users.
-- **Dashboard**: Access the main app at `/` after logging in.
-- **Theme Toggle**: Switch between light and dark modes using the theme toggle button.
-- **API Routes**: Explore API endpoints under `/api/auth/[...nextauth]`.
+Create a `.env.local` file using the template:
 
-## 🤝 Contributing
+```bash
+cp .env.example .env.local
+```
 
-We welcome contributions! Please follow these steps:
+Then, fill in your credentials:
 
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/your-feature`.
-3. Commit your changes: `git commit -m 'Add some feature'`.
-4. Push to the branch: `git push origin feature/your-feature`.
-5. Open a pull request.
+```env
+AUTH_SECRET=your_auth_secret
+AUTH_GOOGLE_ID=your_google_client_id
+AUTH_GOOGLE_SECRET=your_google_secret
+AUTH_GITHUB_ID=your_github_client_id
+AUTH_GITHUB_SECRET=your_github_secret
+DATABASE_URL=your_mongodb_connection_string
+NEXTAUTH_URL=http://localhost:3000
+```
+
+### 4. Start Local Ollama Model
+
+Make sure [Ollama](https://ollama.com/) and Docker are installed, then run:
+
+```bash
+ollama run codellama
+```
+
+Or use your preferred model that supports code generation.
+
+### 5. Run the Development Server
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:3000` in your browser.
+
+
+---
+
+## 🎯 Keyboard Shortcuts
+
+* `Ctrl + Space` or `Double Enter`: Trigger AI suggestions
+* `Tab`: Accept AI suggestion
+* `/`: Open Command Palette (if implemented)
+
+---
+
+
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
 
-## 📞 Contact
-
-For questions or support, reach out to [priyanshu@gmail.com](mailto:br10204160324@egmail.com) or open an issue on GitHub.

@@ -1,38 +1,42 @@
 "use server";
 
-import { auth } from "@/auth";
+import {auth} from "@/auth";
 
 import { db } from "@/lib/db";
 
-export const getUserById = async ( id:string) => {
+
+export const getUserById = async (id:string)=>{
     try {
         const user = await db.user.findUnique({
-            where: { id },
+            where:{id},
             include:{
-                accounts: true,
+                accounts:true
             }
         })
         return user
     } catch (error) {
-        console.error("Error fetching user by ID:", error);
-        return null;
+         console.log(error)
+        return null
     }
 }
 
-export const getAccountByUserId = async (userId:string) => {
+export const getAccountByUserId = async(userId:string)=>{
     try {
-        const account = await db.account.findMany({
-            where: { userId },
-        });
-        return account;
+        const account = await db.account.findFirst({
+            where:{
+                userId
+            }
+        })
+
+        return account
+        
     } catch (error) {
-        console.error("Error fetching account by user ID:", error);
-        return null;
+         console.log(error)
+        return null
     }
 }
 
-
-export const CurrentUser = async () => {
+export const currentUser  = async()=>{
     const user = await auth();
     return user?.user;
 }
