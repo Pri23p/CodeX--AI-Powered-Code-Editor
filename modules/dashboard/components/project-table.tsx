@@ -187,7 +187,6 @@ export default function ProjectTable({
                     </div>
                     <span className="text-sm">{project.user.name}</span>
                   </div>
-
                 </TableCell>
                 <TableCell>
                   <DropdownMenu>
